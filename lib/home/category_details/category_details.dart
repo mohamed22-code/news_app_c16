@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_c16/api/api_manager.dart';
 import 'package:news_app_c16/design/app_colors.dart';
+import 'package:news_app_c16/home/category_details/source_tap_widget.dart';
 
 class CategoryDetails extends StatefulWidget {
   const CategoryDetails({super.key});
@@ -64,12 +65,7 @@ class _CategoryDetailsState extends State<CategoryDetails> {
           }
           //todo: server => response => success
           var sourceList = snapshot.data?.sources ?? [];
-          return ListView.builder(
-              itemBuilder: (context, index) {
-                return Text(sourceList[index].name??'');
-              },
-          itemCount: sourceList.length,
-          );
+          return SourceTapWidget(sourcesList: sourceList,);
         },);
   }
 }

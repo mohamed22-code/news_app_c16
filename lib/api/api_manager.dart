@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:news_app_c16/model/NewsResponse.dart';
 import 'package:news_app_c16/model/SourceResponse.dart';
 
 import 'api_constants.dart';
@@ -21,6 +22,26 @@ https://newsapi.org/v2/top-headlines/sources?apiKey=26639ada56b74b3bbfddf0e648ea
    }catch(e){
      rethrow;
    }
+
+  }
+  /*
+  https://newsapi.org/v2/everything?q=bitcoin&apiKey=26639ada56b74b3bbfddf0e648ea95ce
+   */
+  static Future<NewsResponse> getNewsBySourceId(String sourceId)async{
+    Uri url = Uri.https(ApiConstants.baseUrl,EndPoints.NewsApi,
+    {
+      'apiKey': ApiConstants.apiKey,
+      'sources': sourceId,
+    });
+    try{
+      var response = await http.get(url);
+      var responseBody = response.body;
+      var json = jsonDecode(responseBody);
+      return NewsResponse.fromJson(json);
+    }catch(e){
+      rethrow;
+    }
+
 
   }
 }
