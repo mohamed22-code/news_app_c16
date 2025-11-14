@@ -28,7 +28,7 @@ https://newsapi.org/v2/top-headlines/sources?apiKey=26639ada56b74b3bbfddf0e648ea
   https://newsapi.org/v2/everything?q=bitcoin&apiKey=26639ada56b74b3bbfddf0e648ea95ce
    */
   static Future<NewsResponse> getNewsBySourceId(String sourceId)async{
-    Uri url = Uri.https(ApiConstants.baseUrl,EndPoints.NewsApi,
+    Uri url = Uri.https(ApiConstants.baseUrl,EndPoints.newsApi,
     {
       'apiKey': ApiConstants.apiKey,
       'sources': sourceId,

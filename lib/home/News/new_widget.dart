@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_c16/api/api_manager.dart';
 import 'package:news_app_c16/design/app_colors.dart';
+import 'package:news_app_c16/home/News/news_item.dart';
 import 'package:news_app_c16/model/NewsResponse.dart';
 import 'package:news_app_c16/model/SourceResponse.dart';
 
@@ -15,6 +16,7 @@ class NewWidget extends StatefulWidget {
 class _NewWidgetState extends State<NewWidget> {
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
     return FutureBuilder<NewsResponse>(
         future: ApiManager.getNewsBySourceId(widget.source.id??''),
         builder: (context, snapshot) {
@@ -55,11 +57,14 @@ class _NewWidgetState extends State<NewWidget> {
             );
           }
           var newList = snapshot.data?.articles??[];
-          return ListView.builder(
+          return ListView.separated(
+            padding: EdgeInsets.only(
+              top: height*0.02
+            ),
               itemBuilder: (context, index) {
-                return Text(newList[index].title??'',
-                  style: Theme.of(context).textTheme.labelMedium,);
+                return NewsItem(news: newList[index]);
               },
+            separatorBuilder:(context, index) => SizedBox(height: height*0.02,),
           itemCount: newList.length,);
           }
         ,);
