@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_c16/home/category_details/category_details.dart';
 
+import 'category_fragment/category_fragment.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -15,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
     appBar: AppBar(
       title: Text('Home',style: Theme.of(context).textTheme.headlineLarge,),
     ),
-      body: CategoryDetails(),
+      body: CategoryFragment(),
     );
   }
 }
