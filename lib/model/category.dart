@@ -42,15 +42,16 @@ class Category{
         image: isDark ? AppAssets.sportLight : AppAssets.sportsDark,
       ),
       Category(
-        id: 'science',
-        title: 'Science',
-        image: isDark ? AppAssets.scienceLight : AppAssets.scienceDark,
-      ),
-      Category(
         id: 'technology',
         title: 'Technology',
         image: isDark ? AppAssets.technologyLight : AppAssets.technologyDark,
       ),
+      Category(
+        id: 'science',
+        title: 'Science',
+        image: isDark ? AppAssets.scienceLight : AppAssets.scienceDark,
+      ),
+
     ];
   }
 

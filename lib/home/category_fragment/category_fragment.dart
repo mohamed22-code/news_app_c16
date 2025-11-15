@@ -25,7 +25,7 @@ class CategoryFragment extends StatelessWidget {
               top: height*0.02
             ),
               itemBuilder: (context, index) {
-                return CategoryItem(category: categoriesList[index]);
+                return CategoryItem(category: categoriesList[index],index: index,);
               },
               separatorBuilder: (context, index) {
                 return SizedBox(height: height*0.02,);
