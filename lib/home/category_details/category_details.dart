@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:news_app_c16/api/api_manager.dart';
 import 'package:news_app_c16/design/app_colors.dart';
 import 'package:news_app_c16/home/category_details/source_tap_widget.dart';
+import 'package:news_app_c16/model/category.dart';
 
 class CategoryDetails extends StatefulWidget {
-  const CategoryDetails({super.key});
+  final Category category;
+  const CategoryDetails({super.key,required this.category});
 
   @override
   State<CategoryDetails> createState() => _CategoryDetailsState();
@@ -14,7 +16,7 @@ class _CategoryDetailsState extends State<CategoryDetails> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: ApiManager.getSource(),
+        future: ApiManager.getSource(categoryId: widget.category.id),
         builder: (context, snapshot) {
           //todo: loading
           if (snapshot.connectionState == ConnectionState.waiting){
@@ -37,7 +39,7 @@ class _CategoryDetailsState extends State<CategoryDetails> {
                       setState(() {
 
                       });
-                      ApiManager.getSource();
+                      ApiManager.getSource(categoryId: widget.category.id);
                     }, child: Text("Try again",
                 style: Theme.of(context).textTheme.labelMedium,))
               ],
@@ -56,7 +58,7 @@ class _CategoryDetailsState extends State<CategoryDetails> {
                       setState(() {
 
                       });
-                      ApiManager.getSource();
+                      ApiManager.getSource(categoryId: widget.category.id);
 
                     }, child: Text("Try again",
                   style: Theme.of(context).textTheme.labelMedium,))

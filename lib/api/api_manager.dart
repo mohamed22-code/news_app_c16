@@ -11,9 +11,12 @@ class ApiManager{
 /*
 https://newsapi.org/v2/top-headlines/sources?apiKey=26639ada56b74b3bbfddf0e648ea95ce
  */
-  static Future<SourceResponse> getSource()async{
+  static Future<SourceResponse> getSource({required String categoryId})async{
     Uri url = Uri.https(ApiConstants.baseUrl,EndPoints.sourceApi, {
-      'apiKey':ApiConstants.apiKey});
+      'apiKey':ApiConstants.apiKey,
+        'category':categoryId,
+
+    });
    try{
      var response= await http.get(url);
      String responseBody = response.body;

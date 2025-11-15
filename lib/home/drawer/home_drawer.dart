@@ -6,7 +6,8 @@ import 'package:news_app_c16/home/drawer/widget/dividert_item.dart';
 import 'package:news_app_c16/home/drawer/widget/drawer_item.dart';
 
 class HomeDrawer extends StatelessWidget {
-  const HomeDrawer({super.key});
+  final VoidCallback onDrawerItemClick;
+  const HomeDrawer({super.key,required this.onDrawerItemClick});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,11 @@ class HomeDrawer extends StatelessWidget {
           child: Text('News App',
           style: AppStyles.bold24Black,),
         ),
-        DrawerItem(iconName: Icons.home_filled, text: 'Go To Home'),
+        InkWell(
+            onTap: () {
+              onDrawerItemClick();
+            },
+            child: DrawerItem(iconName: Icons.home_filled, text: 'Go To Home')),
         DividertItem(),
         DrawerItem(iconName: Icons.home_filled, text: 'Theme'),
         AppConfigItem(name: 'Dark'),
