@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_c16/api/api_manager.dart';
+import 'package:news_app_c16/api/dio_api_manager.dart';
 import 'package:news_app_c16/design/app_colors.dart';
 import 'package:news_app_c16/home/News/news_item.dart';
 import 'package:news_app_c16/model/NewsResponse.dart';
@@ -18,7 +19,7 @@ class _NewWidgetState extends State<NewWidget> {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     return FutureBuilder<NewsResponse>(
-        future: ApiManager.getNewsBySourceId(widget.source.id??''),
+        future: DioApiManager().getNewsSourceById(widget.source.id??''),
         builder: (context, snapshot) {
           if(snapshot.connectionState == ConnectionState.waiting){
             return Center(
@@ -32,7 +33,7 @@ class _NewWidgetState extends State<NewWidget> {
                 Text('something went wrong',
                 style: Theme.of(context).textTheme.labelMedium,),
                 ElevatedButton(onPressed: () {
-                  ApiManager.getNewsBySourceId(widget.source.id??'');
+                  DioApiManager().getNewsSourceById(widget.source.id??'');
                   setState(() {
 
                   });
@@ -47,7 +48,7 @@ class _NewWidgetState extends State<NewWidget> {
                 Text(snapshot.data!.message!,
                   style: Theme.of(context).textTheme.labelMedium,),
                 ElevatedButton(onPressed: () {
-                  ApiManager.getNewsBySourceId(widget.source.id??'');
+                  DioApiManager().getNewsSourceById(widget.source.id??'');
                   setState(() {
 
                   });

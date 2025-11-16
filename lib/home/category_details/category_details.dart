@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_c16/api/api_manager.dart';
+import 'package:news_app_c16/api/dio_api_manager.dart';
 import 'package:news_app_c16/design/app_colors.dart';
 import 'package:news_app_c16/home/category_details/source_tap_widget.dart';
 import 'package:news_app_c16/model/category.dart';
@@ -16,7 +17,7 @@ class _CategoryDetailsState extends State<CategoryDetails> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: ApiManager.getSource(categoryId: widget.category.id),
+        future: DioApiManager().getSources(categoryId: widget.category.id),
         builder: (context, snapshot) {
           //todo: loading
           if (snapshot.connectionState == ConnectionState.waiting){
@@ -30,7 +31,8 @@ class _CategoryDetailsState extends State<CategoryDetails> {
           else if(snapshot.hasError){
             return Column(
               children: [
-                Text('something went wrong'),
+                Text('something went wrong',
+                style: Theme.of(context).textTheme.headlineMedium,),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.greyColor
@@ -39,7 +41,7 @@ class _CategoryDetailsState extends State<CategoryDetails> {
                       setState(() {
 
                       });
-                      ApiManager.getSource(categoryId: widget.category.id);
+                      DioApiManager().getSources(categoryId: widget.category.id);
                     }, child: Text("Try again",
                 style: Theme.of(context).textTheme.labelMedium,))
               ],
