@@ -22,6 +22,7 @@ class _CategoryDetailsState extends State<CategoryDetails> {
     super.initState();
     viewModel.getSources(widget.category.id);
   }
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
