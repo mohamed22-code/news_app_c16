@@ -19,7 +19,17 @@ class AppTheme{
       labelMedium: AppStyles.medium14Black,
       headlineMedium: AppStyles.medium20Black,
       headlineLarge: AppStyles.medium24Black,
-    )
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: AppColors.whiteColor,
+        textStyle: AppStyles.bold16Black,
+        padding: EdgeInsets.all(16),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadiusGeometry.circular(16),
+        ),
+      ),
+    ),
   );
   static final ThemeData darkTheme = ThemeData(
       primaryColor: AppColors.blackColor,
@@ -31,11 +41,22 @@ class AppTheme{
         centerTitle: true,
       ),
       textTheme: TextTheme(
+        bodyMedium: AppStyles.medium14Black,
         labelLarge: AppStyles.bold16White,
         labelSmall: AppStyles.medium12grey,
         labelMedium: AppStyles.medium14White,
         headlineMedium: AppStyles.medium20White,
         headlineLarge: AppStyles.medium24White,
-      )
+      ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: AppColors.blackColor,
+        textStyle: AppStyles.bold16White,
+        padding: EdgeInsets.all(16),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadiusGeometry.circular(16),
+        ),
+      ),
+    ),
   );
 }
