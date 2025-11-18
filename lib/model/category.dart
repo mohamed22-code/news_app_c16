@@ -24,7 +24,7 @@ class Category{
       Category(
         id: 'business',
         title: 'Business',
-        image: isDark ? AppAssets.businiessLight : AppAssets.businessDark,
+        image: isDark ? AppAssets.busniessLight : AppAssets.businessDark,
       ),
       Category(
         id: 'entertainment',

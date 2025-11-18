@@ -29,9 +29,6 @@ class AppConfigItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(name,style: AppStyles.medium20White,),
-          Icon(Icons.arrow_drop_down_outlined,
-            size: 35,
-            color: AppColors.whiteColor,)
         ],
       ),
       

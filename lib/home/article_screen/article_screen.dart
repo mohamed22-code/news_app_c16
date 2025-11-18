@@ -33,7 +33,7 @@ class _ArticleDetailsState extends State<ArticleDetails> {
       ),),
 
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12 ),
+        padding: const EdgeInsets.symmetric(horizontal: 16 ),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -48,10 +48,10 @@ class _ArticleDetailsState extends State<ArticleDetails> {
                   style: AppStyles.medium14Black,),
               SizedBox(height: 26),
 
-              Text("By ${widget.newsItem.author ?? ""}"),
+              Text("By ${widget.newsItem.author ?? ""}",style: AppStyles.medium12grey,),
               SizedBox(height: 26),
 
-              Text(widget.newsItem.publishedAt ?? ""),
+              Text(widget.newsItem.publishedAt ?? "",style: AppStyles.medium12grey,),
               SizedBox(height: 26),
 
               CachedNetworkImage(
@@ -64,7 +64,7 @@ class _ArticleDetailsState extends State<ArticleDetails> {
 
               SizedBox(height: 26),
 
-              Text(widget.newsItem.content ?? ""),
+              Text(widget.newsItem.content ?? "",style: AppStyles.bold16Black,),
               SizedBox(height: 26),
 
             ],

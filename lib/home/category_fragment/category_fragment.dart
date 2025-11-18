@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_c16/home/category_fragment/category_item.dart';
 import 'package:news_app_c16/model/category.dart';
+import 'package:provider/provider.dart';
+
+import '../../design/Providers/theme_provider.dart';
 
 typedef OnCategoryItemClick = void Function(Category);
 
@@ -13,7 +16,8 @@ class CategoryFragment extends StatelessWidget {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
-    categoriesList = Category.getCategoryList(true);
+    bool isDark = Provider.of<ThemeProvider>(context).isDark;
+    categoriesList = Category.getCategoryList(isDark);
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: width*0.04,

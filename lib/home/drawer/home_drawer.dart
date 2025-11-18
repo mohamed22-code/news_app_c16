@@ -4,6 +4,9 @@ import 'package:news_app_c16/design/app_styles.dart';
 import 'package:news_app_c16/home/drawer/widget/app_config_item.dart';
 import 'package:news_app_c16/home/drawer/widget/dividert_item.dart';
 import 'package:news_app_c16/home/drawer/widget/drawer_item.dart';
+import 'package:provider/provider.dart';
+
+import '../../design/Providers/theme_provider.dart';
 
 class HomeDrawer extends StatelessWidget {
   final VoidCallback onDrawerItemClick;
@@ -29,11 +32,25 @@ class HomeDrawer extends StatelessWidget {
             },
             child: DrawerItem(iconName: Icons.home_filled, text: 'Go To Home')),
         DividertItem(),
-        DrawerItem(iconName: Icons.home_filled, text: 'Theme'),
-        AppConfigItem(name: 'Dark'),
+        DrawerItem(iconName: Icons.light_mode, text: 'Theme'),
+        InkWell(
+          onTap: () {
+            var themeProvider = Provider.of<ThemeProvider>(context, listen: false);
+
+            if(themeProvider.isDark) {
+              themeProvider.setTheme = ThemeMode.light;
+            }else{
+              themeProvider.setTheme = ThemeMode.dark;
+            }
+          },
+          child: AppConfigItem(
+            name: Provider.of<ThemeProvider>(context).isDark ? 'Dark' : 'Light',
+          ),
+        ),
+
         SizedBox(height: height*0.02),
         DividertItem(),
-        DrawerItem(iconName: Icons.home_filled, text: 'Language'),
+        DrawerItem(iconName: Icons.language, text: 'Language'),
         AppConfigItem(name: 'English'),
         SizedBox(height: height*0.02),
       ],

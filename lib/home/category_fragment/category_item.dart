@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_c16/design/app_colors.dart';
 import 'package:news_app_c16/model/category.dart';
+import 'package:provider/provider.dart';
+
+import '../../design/Providers/theme_provider.dart';
 
 class CategoryItem extends StatelessWidget {
   final Category category;
@@ -12,6 +15,8 @@ class CategoryItem extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     bool isEven = (index % 2 == 0);
+
+    bool isDark = Provider.of<ThemeProvider>(context).isDark;
     return Container(
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
@@ -24,7 +29,7 @@ class CategoryItem extends StatelessWidget {
           Column(
             children: [
               Text(category.title,
-                style: Theme.of(context).textTheme.headlineLarge?.copyWith(color: AppColors.blackColor),),
+                style: Theme.of(context).textTheme.titleLarge),
               SizedBox(height: height*0.04,),
               Container(
                 width: width*0.40,

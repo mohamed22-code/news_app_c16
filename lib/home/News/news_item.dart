@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app_c16/design/app_colors.dart';
 import 'package:news_app_c16/design/app_styles.dart';
+import 'package:news_app_c16/design/extensions/data_formatis_extension.dart';
 import 'package:news_app_c16/home/article_screen/article_screen.dart';
 import 'package:news_app_c16/model/NewsResponse.dart';
 
@@ -12,7 +13,6 @@ class NewsItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // print("$news");
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return Container(
@@ -56,7 +56,7 @@ class NewsItem extends StatelessWidget {
                     style: AppStyles.medium12grey,
                   ),
                 ),
-                Text(news.publishedAt ?? '', style: AppStyles.medium12grey),
+                Text(news.publishedAt?.formatArticleDate() ?? "", style: AppStyles.medium12grey),
               ],
             ),
           ],
@@ -67,6 +67,7 @@ class NewsItem extends StatelessWidget {
 
   void _showBottomSheet(BuildContext context) {
     showModalBottomSheet(
+      // backgroundColor: Theme.of(context).splashColor,
       context: context,
       builder: (context) {
         return Container(

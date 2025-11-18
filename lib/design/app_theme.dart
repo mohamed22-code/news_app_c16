@@ -14,6 +14,8 @@ class AppTheme{
       centerTitle: true,
     ),
     textTheme: TextTheme(
+      titleLarge: AppStyles.bold24White,
+      bodyMedium: AppStyles.medium14White,
       labelLarge: AppStyles.bold16Black,
       labelSmall: AppStyles.medium12grey,
       labelMedium: AppStyles.medium14Black,
@@ -41,6 +43,7 @@ class AppTheme{
         centerTitle: true,
       ),
       textTheme: TextTheme(
+        titleLarge: AppStyles.bold24Black,
         bodyMedium: AppStyles.medium14Black,
         labelLarge: AppStyles.bold16White,
         labelSmall: AppStyles.medium12grey,
