@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_c16/home/category_fragment/category_item.dart';
+import 'package:news_app_c16/l10n/app_localizations.dart';
 import 'package:news_app_c16/model/category.dart';
 import 'package:provider/provider.dart';
 
@@ -17,7 +18,7 @@ class CategoryFragment extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     bool isDark = Provider.of<ThemeProvider>(context).isDark;
-    categoriesList = Category.getCategoryList(isDark);
+    categoriesList = Category.getCategoryList(context, isDark);
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: width*0.04,
@@ -25,7 +26,7 @@ class CategoryFragment extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Good Morning\nHere is Some News For You',
+          Text(AppLocalizations.of(context)!.description_home_screen,
           style: Theme.of(context).textTheme.headlineMedium,),
           Expanded(child: ListView.separated(
             padding: EdgeInsets.only(

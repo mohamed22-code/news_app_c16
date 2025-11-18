@@ -39,4 +39,23 @@ class DioApiManager{
   return newsResponse;
 
 }
+
+// Future<NewsResponse> searchNewsByQuery(String query)async{
+//    try{
+//      var response = await dio.get('https://newsapi.org/v2/everything',
+//        queryParameters: {
+//        'apiKey':ApiConstants.apiKey,
+//        'q':query,
+//        'language':'en',
+//        'sortBy':'publishedAt',
+//        },
+//        );
+//        var json = response.data;
+//        var newsResponse=NewsResponse.fromJson(json);
+//        return newsResponse;
+//        }catch(e){
+//      rethrow;
+//        }
+// }
+
 }

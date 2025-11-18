@@ -4,6 +4,7 @@ import 'package:news_app_c16/design/app_colors.dart';
 import 'package:news_app_c16/design/app_styles.dart';
 import 'package:news_app_c16/design/extensions/data_formatis_extension.dart';
 import 'package:news_app_c16/home/article_screen/article_screen.dart';
+import 'package:news_app_c16/l10n/app_localizations.dart';
 import 'package:news_app_c16/model/NewsResponse.dart';
 
 class NewsItem extends StatelessWidget {
@@ -67,7 +68,7 @@ class NewsItem extends StatelessWidget {
 
   void _showBottomSheet(BuildContext context) {
     showModalBottomSheet(
-      // backgroundColor: Theme.of(context).splashColor,
+      backgroundColor: Theme.of(context).splashColor,
       context: context,
       builder: (context) {
         return Container(
@@ -102,7 +103,7 @@ class NewsItem extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Text("View Full Article",style: Theme.of(context).textTheme.labelLarge,),
+                  child: Text(AppLocalizations.of(context)!.button_text,style: Theme.of(context).textTheme.labelLarge,),
                 ),
               SizedBox(height: 30),
             ],

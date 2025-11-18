@@ -1,0 +1,21 @@
+{
+  "title_home_screen": "الرئيسية",
+  "description_home_screen": "صباح الخير\nإليك بعض الأخبار لك",
+  "general": "عام",
+  "business": "اعمال",
+  "enterainment": "ترفيه",
+  "health": "صحه",
+  "sports": "رياضه",
+  "technology": "تكنولوجيا",
+  "science": "علوم",
+  "view_all": "عرض الكل",
+  "go_to_home": "اذهب الي الرئيسيه",
+  "theme": "السمه",
+  "light": "ضوء",
+  "dark": "مظلم",
+  "language": "اللغه",
+  "english": "الانجليزيه",
+  "arabic": "العربيه",
+  "button_text": "عرض المقال كاملا"
+
+}

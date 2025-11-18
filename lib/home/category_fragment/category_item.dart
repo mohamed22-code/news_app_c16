@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_c16/design/app_colors.dart';
+import 'package:news_app_c16/l10n/app_localizations.dart';
 import 'package:news_app_c16/model/category.dart';
 import 'package:provider/provider.dart';
 
@@ -50,7 +51,7 @@ class CategoryItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   textDirection: (isEven)?TextDirection.ltr:TextDirection.rtl,
                   children: [
-                    Text('View All',
+                    Text(AppLocalizations.of(context)!.view_all,
                     style: Theme.of(context).textTheme.headlineMedium,),
                     CircleAvatar(
                       radius: 25,

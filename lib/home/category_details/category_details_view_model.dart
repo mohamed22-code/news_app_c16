@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_c16/api/api_manager.dart';
+import 'package:news_app_c16/api/dio_api_manager.dart';
 import 'package:news_app_c16/model/SourceResponse.dart';
 
 class CategoryDetailsViewModel extends ChangeNotifier{
@@ -13,7 +14,7 @@ class CategoryDetailsViewModel extends ChangeNotifier{
     errorMessage =null;
     notifyListeners();
   try{
-    var sourceResponse = await ApiManager.getSource(categoryId: categoryId);
+    var sourceResponse = await DioApiManager().getSources(categoryId: categoryId);
     if(sourceResponse.status == 'error'){
       errorMessage = sourceResponse.message;
     }else{

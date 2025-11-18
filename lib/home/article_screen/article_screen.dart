@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app_c16/design/app_styles.dart';
+import 'package:news_app_c16/design/extensions/data_formatis_extension.dart';
 import 'package:news_app_c16/model/NewsResponse.dart';
 
 import '../../design/app_colors.dart';
@@ -51,7 +52,7 @@ class _ArticleDetailsState extends State<ArticleDetails> {
               Text("By ${widget.newsItem.author ?? ""}",style: AppStyles.medium12grey,),
               SizedBox(height: 26),
 
-              Text(widget.newsItem.publishedAt ?? "",style: AppStyles.medium12grey,),
+              Text(widget.newsItem.publishedAt?.formatArticleDate() ?? "",style: AppStyles.medium12grey,),
               SizedBox(height: 26),
 
               CachedNetworkImage(

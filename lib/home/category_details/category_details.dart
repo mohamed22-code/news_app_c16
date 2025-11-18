@@ -60,7 +60,7 @@ class _CategoryDetailsState extends State<CategoryDetails> {
                       setState(() {
 
                       });
-                      ApiManager.getSource(categoryId: widget.category.id);
+                      DioApiManager().getSources(categoryId: widget.category.id);
 
                     }, child: Text("Try again",
                   style: Theme.of(context).textTheme.labelMedium,))

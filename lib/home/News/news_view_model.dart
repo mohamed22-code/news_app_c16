@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_c16/api/api_manager.dart';
+import 'package:news_app_c16/api/dio_api_manager.dart';
 import 'package:news_app_c16/model/NewsResponse.dart';
 
 class NewsViewModel extends ChangeNotifier{
@@ -8,7 +9,7 @@ List<News>? newList;
 String? errorMessage;
 void getNewsBySourceId(String sourceId)async{
   try{
-    var newsResponse = await ApiManager.getNewsBySourceId(sourceId);
+    var newsResponse = await DioApiManager().getNewsSourceById(sourceId);
     if(newsResponse.status == 'error'){
       errorMessage = newsResponse.message;
     }else{
