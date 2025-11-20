@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:news_app_c16/design/app_colors.dart';
-import 'package:news_app_c16/design/app_styles.dart';
 import 'package:news_app_c16/home/drawer/widget/app_config_item.dart';
 import 'package:news_app_c16/home/drawer/widget/dividert_item.dart';
 import 'package:news_app_c16/home/drawer/widget/drawer_item.dart';
 import 'package:news_app_c16/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
-import '../../design/Providers/language_provider.dart';
-import '../../design/Providers/theme_provider.dart';
+import '../../core/Providers/language_provider.dart';
+import '../../core/Providers/theme_provider.dart';
+import '../../core/design/app_colors.dart';
+import '../../core/design/app_styles.dart';
+
 
 class HomeDrawer extends StatelessWidget {
   final VoidCallback onDrawerItemClick;

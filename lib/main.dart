@@ -3,11 +3,12 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:news_app_c16/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
-import 'design/Providers/AppSharedPreferences.dart';
-import 'design/Providers/language_provider.dart';
-import 'design/Providers/theme_provider.dart';
-import 'design/app_routes.dart';
-import 'design/app_theme.dart';
+
+import 'core/Providers/AppSharedPreferences.dart';
+import 'core/Providers/language_provider.dart';
+import 'core/Providers/theme_provider.dart';
+import 'core/design/app_routes.dart';
+import 'core/design/app_theme.dart';
 import 'home/home_screen.dart';
 
 

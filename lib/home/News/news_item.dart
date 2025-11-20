@@ -1,11 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:news_app_c16/design/app_colors.dart';
-import 'package:news_app_c16/design/app_styles.dart';
-import 'package:news_app_c16/design/extensions/data_formatis_extension.dart';
+import 'package:news_app_c16/core/extensions/data_formatis_extension.dart';
 import 'package:news_app_c16/home/article_screen/article_screen.dart';
 import 'package:news_app_c16/l10n/app_localizations.dart';
 import 'package:news_app_c16/model/NewsResponse.dart';
+
+import '../../core/design/app_colors.dart';
+import '../../core/design/app_styles.dart';
 
 class NewsItem extends StatelessWidget {
   final News news;

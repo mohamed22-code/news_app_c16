@@ -4,7 +4,7 @@ import 'package:news_app_c16/l10n/app_localizations.dart';
 import 'package:news_app_c16/model/category.dart';
 import 'package:provider/provider.dart';
 
-import '../../design/Providers/theme_provider.dart';
+import '../../core/Providers/theme_provider.dart';
 
 typedef OnCategoryItemClick = void Function(Category);
 

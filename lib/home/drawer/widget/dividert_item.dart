@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_app_c16/design/app_colors.dart';
+
+import '../../../core/design/app_colors.dart';
 
 class DividertItem extends StatelessWidget {
   const DividertItem({super.key});

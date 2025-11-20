@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:news_app_c16/design/app_colors.dart';
 import 'package:news_app_c16/home/News/new_widget.dart';
 import 'package:news_app_c16/home/category_details/widget/source_name.dart';
 import 'package:news_app_c16/model/SourceResponse.dart';
+
+import '../../core/design/app_colors.dart';
 
 class SourceTapWidget extends StatefulWidget {
    SourceTapWidget({super.key,required this.sourcesList});

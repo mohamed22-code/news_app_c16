@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:news_app_c16/design/app_colors.dart';
+
 import 'package:news_app_c16/home/category_details/category_details.dart';
 import 'package:news_app_c16/home/drawer/home_drawer.dart';
 import 'package:news_app_c16/l10n/app_localizations.dart';
 import 'package:news_app_c16/model/category.dart';
 
+import '../core/design/app_colors.dart';
 import 'category_fragment/category_fragment.dart';
 
 class HomeScreen extends StatefulWidget {

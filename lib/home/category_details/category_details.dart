@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_c16/api/api_manager.dart';
 import 'package:news_app_c16/api/dio_api_manager.dart';
-import 'package:news_app_c16/design/app_colors.dart';
 import 'package:news_app_c16/home/category_details/source_tap_widget.dart';
 import 'package:news_app_c16/model/category.dart';
+
+import '../../core/design/app_colors.dart';
 
 class CategoryDetails extends StatefulWidget {
   final Category category;
