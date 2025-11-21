@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:news_app_c16/l10n/app_localizations.dart';
+import 'package:news_app_c16/search/presention/search_view/search_view/search_view.dart';
 import 'package:provider/provider.dart';
 
 

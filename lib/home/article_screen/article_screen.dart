@@ -23,16 +23,7 @@ class _ArticleDetailsState extends State<ArticleDetails> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        iconTheme: IconThemeData(
-          color: AppColors.blackColor
-        ),
-        backgroundColor: AppColors.whiteColor,
-        leading: IconButton(
-              icon: Icon(Icons.menu, color: AppColors.blackColor),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-      ),),
+      ),
 
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16 ),
