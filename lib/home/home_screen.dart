@@ -12,6 +12,7 @@ import 'package:news_app_c16/search_test/news_search.dart';
 import 'package:provider/provider.dart';
 
 import '../core/design/app_colors.dart';
+import '../search/presention/search_view/search_view/search_view.dart';
 import 'category_fragment/category_fragment.dart';
 
 
@@ -52,81 +53,31 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: isSearching?TextField(
-          controller: searchController,
-          autofocus: true,
-          decoration: const InputDecoration(
-            hintText: 'Search',
-            border: InputBorder.none,
-          ),style: TextStyle(color: AppColors.whiteColor),
-          onChanged: _onSearchChanged,
-          // onSubmitted: (value){
-          //   _debounce?.cancel();
-          //   final vm = Provider.of<NewsViewModel>(context, listen: false);
-          //   vm.filterNews(value);
-          // },
-        ): Text(
-          selectedCategory == null ?
-          AppLocalizations.of(context)!.title_home_screen: selectedCategory!.title,
-          style: Theme
-              .of(context)
-              .textTheme
-              .headlineLarge,),
+        title:Text(
+            selectedCategory == null ?
+            AppLocalizations.of(context)!.title_home_screen: selectedCategory!.title,
+            style: Theme
+                .of(context)
+                .textTheme
+                .headlineLarge,),
         actions: [
-          isSearching
-              ? IconButton(
-            icon: const Icon(Icons.close),
-            onPressed: () {
-              setState(() {
-                isSearching = false;
-                searchController.clear();
-                vm.clearFilter();
-              });
-            },
-          )
-              : IconButton(
+          IconButton(
             icon: const Icon(Icons.search),
             onPressed: () {
-              setState(() {
-                isSearching = true;
-                vm.clearFilter();
-              });
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SearchView()),
+              );
             },
           )
-        ],
 
+        ],
       ),
       drawer: Drawer(child: HomeDrawer(onDrawerItemClick: onDrawerItemClick,),
         backgroundColor: AppColors.blackColor,),
-      // body: selectedCategory == null?
-      // CategoryFragment(onCategoryItemClick: onCategoryItemClick,):
-      // CategoryDetails(category: selectedCategory!,),
-      body: isSearching
-          ? _buildSearchResults(vm)
-          : (selectedCategory == null ? CategoryFragment(onCategoryItemClick: onCategoryItemClick) : CategoryDetails(category: selectedCategory!)),
-    );
-  }
-
-  Widget _buildSearchResults(NewsViewModel vm) {
-    final results = vm.filteredList ?? [];
-    print('newList length = ${vm.newList?.length}');
-    print('filteredList length = ${vm.filteredList?.length}');
-    if (vm.errorMessage != null && (results.isEmpty)) {
-      return Center(child: Text(vm.errorMessage!));
-    }
-    if (results.isEmpty) {
-      return Center(child: Text('No results'));
-    }
-    return ListView.builder(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      itemCount: results.length,
-      itemBuilder: (context, index) {
-        final news = results[index];
-        return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: NewsItem(news: news),
-        );
-      },
+      body: selectedCategory == null?
+      CategoryFragment(onCategoryItemClick: onCategoryItemClick,):
+      CategoryDetails(category: selectedCategory!,),
     );
   }
 

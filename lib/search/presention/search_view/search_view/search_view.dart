@@ -25,49 +25,59 @@ class SearchViewContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Cubit = context.read<SearchCubit>();
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            TextField(
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              TextField(
 
-              controller: Cubit.searchContoller,
-              onChanged: (value) => Cubit.searchArticle(),
-              decoration: InputDecoration(
-                suffixIcon: IconButton(onPressed: () {
-                  Cubit.searchContoller.clear();
-                }, icon: Icon(Icons.close)),
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide(color: AppColors.greyColor,
-                          width: 2,
-                          strokeAlign: 1),
-                      borderRadius: BorderRadius.circular(16)
-                  )
+                controller: Cubit.searchContoller,
+                onChanged: (value) => Cubit.searchArticle(),
+                decoration: InputDecoration(
+                  hintText: 'search',
+                  suffixIcon: IconButton(onPressed: () {
+                    Cubit.searchContoller.clear();
+                  }, icon: Icon(Icons.close)),
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(color: AppColors.greyColor,
+                            width: 2,
+                            strokeAlign: 1),
+                        borderRadius: BorderRadius.circular(16)
+                    )
+                ),
+                style: Theme.of(context).textTheme.labelLarge,
               ),
-            ),
 
-            Expanded(
-              child: BlocBuilder<SearchCubit, SearchState>(
-                builder: (context, state) {
-                  if (state is LoadingState) {
-                    return Center(child: CircularProgressIndicator(),);
-                  } else if (state is EmptyState) {
-                    return Center(child: Text('no result'),);
-                  } else if (state is ErrorState) {
-                    return Center(child: Text('${state.error}'),);
-                  } else if (state is SuccessState) {
-                    return ListView.separated(
-                        itemBuilder: (context, index) {
-                          return NewsItem(news: state.news[index]);
-                        }, separatorBuilder: (context, index) => Divider(),
-                        itemCount: state.news.length);
-                  } else {
-                    return SizedBox();
-                  }
-                },),
-            )
-          ],
+              Expanded(
+                child: BlocBuilder<SearchCubit, SearchState>(
+                  builder: (context, state) {
+                    if (state is LoadingState) {
+                      return Center(child: CircularProgressIndicator(),);
+                    } else if (state is EmptyState) {
+                      return Center(child: Text('no result'),);
+                    } else if (state is ErrorState) {
+                      return Center(child: Text('${state.error}'),);
+                    } else if (state is SuccessState) {
+                      return ListView.separated(
+                          itemBuilder: (context, index) {
+                            return NewsItem(news: state.news[index]);
+                          }, separatorBuilder: (context, index) => Divider(),
+                          itemCount: state.news.length);
+                    } else {
+                      return SizedBox();
+                    }
+                  },),
+              )
+            ],
+          ),
         ),
       ),
     );
