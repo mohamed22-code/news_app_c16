@@ -1,3 +1,5 @@
+///search_view_model
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app_c16/core/design/app_colors.dart';
@@ -14,7 +16,7 @@ class SearchView extends StatelessWidget {
     return BlocProvider(
       create: (context) => SearchCubit(SearchApi()),
       child: Scaffold(
-        body:SearchViewContent()
+          body:SearchViewContent()
       ),
     );
   }
@@ -42,10 +44,10 @@ class SearchViewContent extends StatelessWidget {
                 controller: Cubit.searchContoller,
                 onChanged: (value) => Cubit.searchArticle(),
                 decoration: InputDecoration(
-                  hintText: 'search',
-                  suffixIcon: IconButton(onPressed: () {
-                    Cubit.searchContoller.clear();
-                  }, icon: Icon(Icons.close)),
+                    hintText: 'search',
+                    suffixIcon: IconButton(onPressed: () {
+                      Cubit.searchContoller.clear();
+                    }, icon: Icon(Icons.close)),
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: AppColors.greyColor,
                             width: 2,
@@ -83,4 +85,3 @@ class SearchViewContent extends StatelessWidget {
     );
   }
 }
-
