@@ -14,6 +14,8 @@ import 'package:provider/provider.dart';
 import '../core/design/app_colors.dart';
 import 'category_fragment/category_fragment.dart';
 
+
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -58,6 +60,11 @@ class _HomeScreenState extends State<HomeScreen> {
             border: InputBorder.none,
           ),style: TextStyle(color: AppColors.whiteColor),
           onChanged: _onSearchChanged,
+          // onSubmitted: (value){
+          //   _debounce?.cancel();
+          //   final vm = Provider.of<NewsViewModel>(context, listen: false);
+          //   vm.filterNews(value);
+          // },
         ): Text(
           selectedCategory == null ?
           AppLocalizations.of(context)!.title_home_screen: selectedCategory!.title,
@@ -102,6 +109,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildSearchResults(NewsViewModel vm) {
     final results = vm.filteredList ?? [];
+    print('newList length = ${vm.newList?.length}');
+    print('filteredList length = ${vm.filteredList?.length}');
     if (vm.errorMessage != null && (results.isEmpty)) {
       return Center(child: Text(vm.errorMessage!));
     }
@@ -123,6 +132,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void onCategoryItemClick(Category newSelectedCategory) {
     selectedCategory = newSelectedCategory;
+    final vm = Provider.of<NewsViewModel>(context, listen: false);
+    vm.getNewsBySourceId(newSelectedCategory.id);
     setState(() {
 // Provider.of<NewsViewModel>(context, listen: false).getNewsBySourceId(newSelectedCategory.id);
     });
@@ -136,3 +147,6 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 }
+
+
+

@@ -25,6 +25,7 @@ Future<void> getNewsBySourceId(String sourceId)async{
     newList = [];
     filteredList = [];
   }
+  print('getNewsBySourceId: newList length = ${newList?.length}');
   notifyListeners();
 
 }
