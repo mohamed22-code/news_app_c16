@@ -43,9 +43,10 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       locale: languageProvider.currentLocale,
-      initialRoute: AppRoutes.homeRouteName,
+      initialRoute: AppRoutes.searchRouteName,
       routes: {
         AppRoutes.homeRouteName: (context) => HomeScreen(),
+        AppRoutes.searchRouteName: (context) => SearchView(),
       },
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
