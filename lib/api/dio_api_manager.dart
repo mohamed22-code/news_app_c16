@@ -40,21 +40,3 @@ class DioApiManager{
 
 }
 }
-
-
-
-
-// Future<NewsResponse> searchEverything(String query) async {
-//   try {
-//     var response = await dio.get('https://newsapi.org/v2/everything',
-//       queryParameters: {
-//         'apiKey': ApiConstants.apiKey,
-//         'q': query,
-//       },
-//     );
-//     var json = response.data;
-//     return NewsResponse.fromJson(json);
-//   } catch (e) {
-//     rethrow;
-//   }
-// }

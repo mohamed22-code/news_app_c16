@@ -22,12 +22,6 @@ Future<void> main() async {
       ChangeNotifierProvider(create: (_) => ThemeProvider()),
       ChangeNotifierProvider(create: (_) => LanguageProvider()),
       ChangeNotifierProvider(create: (_) => NewsViewModel()),
-
-      // ChangeNotifierProvider(create: (_) {
-      //   final vm = NewsViewModel();
-      //   vm.getNewsBySourceId('your-source-id'); // optional prefetch
-      //   return vm;
-      // }),
     ],
       child: MyApp(),
     )
