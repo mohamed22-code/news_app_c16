@@ -21,7 +21,7 @@ Future<void> main() async {
     MultiProvider(providers: [
       ChangeNotifierProvider(create: (_) => ThemeProvider()),
       ChangeNotifierProvider(create: (_) => LanguageProvider()),
-      ChangeNotifierProvider(create: (_) => NewsViewModel()),
+      // ChangeNotifierProvider(create: (_) => NewsViewModel()),
     ],
       child: MyApp(),
     )

@@ -1,15 +1,10 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:news_app_c16/home/News/news_item.dart';
-import 'package:news_app_c16/home/News/news_view_model.dart';
 
 import 'package:news_app_c16/home/category_details/category_details.dart';
 import 'package:news_app_c16/home/drawer/home_drawer.dart';
 import 'package:news_app_c16/l10n/app_localizations.dart';
 import 'package:news_app_c16/model/category.dart';
-import 'package:news_app_c16/search_test/news_search.dart';
-import 'package:provider/provider.dart';
 
 import '../core/design/app_colors.dart';
 import '../search/presention/search_view/search_view/search_view.dart';
@@ -26,30 +21,30 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   Category? selectedCategory;
-  bool isSearching = false;
+  // bool isSearching = false;
   final TextEditingController searchController = TextEditingController();
 
 
-  Timer? _debounce;
-  @override
-  void dispose() {
-    _debounce?.cancel();
-    searchController.dispose();
-    super.dispose();
-  }
-  void _onSearchChanged(String query) {
-    if(_debounce?.isActive??false)
-      _debounce!.cancel();
-    _debounce = Timer(const Duration(milliseconds: 500), () {
-      final vm = Provider.of<NewsViewModel>(context, listen: false);
-      vm.filterNews(query);
-    });
-  }
+  // Timer? _debounce;
+  // @override
+  // void dispose() {
+  //   _debounce?.cancel();
+  //   searchController.dispose();
+  //   super.dispose();
+  // }
+  // void _onSearchChanged(String query) {
+  //   if(_debounce?.isActive??false)
+  //     _debounce!.cancel();
+  //   _debounce = Timer(const Duration(milliseconds: 500), () {
+  //     final vm = Provider.of<NewsViewModel>(context, listen: false);
+  //     vm.filterNews(query);
+  //   });
+  // }
 
 
   @override
   Widget build(BuildContext context) {
-    final vm = Provider.of<NewsViewModel>(context);
+    // final vm = Provider.of<NewsViewModel>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -83,8 +78,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void onCategoryItemClick(Category newSelectedCategory) {
     selectedCategory = newSelectedCategory;
-    final vm = Provider.of<NewsViewModel>(context, listen: false);
-    vm.getNewsBySourceId(newSelectedCategory.id);
+    // final vm = Provider.of<NewsViewModel>(context, listen: false);
+    // vm.getNewsBySourceId(newSelectedCategory.id);
     setState(() {
 // Provider.of<NewsViewModel>(context, listen: false).getNewsBySourceId(newSelectedCategory.id);
     });
